@@ -1,0 +1,12 @@
+/* ===== Color Palette & Design Tokens ===== */
+:root {
+  --bg: #030407;
+  --bg-soft: #0a0d16;
+  --cobalt: #1558c9;
+  --cobalt-glow: rgba(21, 88, 201, 0.5);
+  --lime: #d4ff24;
+  --lime-glow: rgba(212, 255, 36, 0.35);
+  --text: #eef1f8;
+  --text-muted: #9aa4bd;
+  --border: rgba(255, 255, 255, 0.08);
+}

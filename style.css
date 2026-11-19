@@ -315,3 +315,6 @@ main section {
 @keyframes blink {
   50% { opacity: 0; }
 }
+.hero-title {
+  min-height: 1.3em;
+}

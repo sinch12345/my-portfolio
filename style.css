@@ -210,3 +210,15 @@ main section {
   transform: translateY(-3px);
   box-shadow: 0 0 35px var(--lime-glow);
 }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--cobalt);
+  box-shadow: 0 0 20px var(--cobalt-glow);
+}
+
+.btn-outline:hover {
+  background: var(--cobalt);
+  box-shadow: 0 0 35px var(--cobalt-glow);
+}

@@ -46,3 +46,29 @@ a {
   background: var(--lime);
   color: var(--bg);
 }
+/* ===== Typography ===== */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+p {
+  color: var(--text-muted);
+  max-width: 65ch;
+}

@@ -267,3 +267,22 @@ main section {
   left: 55%;
   opacity: 0.12;
 }
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(140px, 100px) scale(1.15); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-160px, -90px) scale(1.2); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-120px, 80px) scale(0.85); }
+}
+
+.orb-1 { animation: float-1 14s ease-in-out infinite; }
+.orb-2 { animation: float-2 18s ease-in-out infinite; }
+.orb-3 { animation: float-3 12s ease-in-out infinite; }

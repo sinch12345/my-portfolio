@@ -222,3 +222,7 @@ main section {
   background: var(--cobalt);
   box-shadow: 0 0 35px var(--cobalt-glow);
 }
+
+.btn:active {
+  transform: translateY(0) scale(0.96);
+}

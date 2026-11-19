@@ -9,6 +9,8 @@
   --text: #eef1f8;
   --text-muted: #9aa4bd;
   --border: rgba(255, 255, 255, 0.08);
+    --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
 }
 /* ===== Reset & Base ===== */
 *,
@@ -28,6 +30,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
+  font-family: var(--font-body);
 }
 
 ul {

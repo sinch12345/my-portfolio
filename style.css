@@ -299,3 +299,19 @@ main section {
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
 }
+
+/* ===== Typing Effect ===== */
+.typed-text {
+  color: var(--lime);
+  text-shadow: 0 0 18px var(--lime-glow);
+}
+
+.cursor {
+  color: var(--lime);
+  margin-left: 2px;
+  animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

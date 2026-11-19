@@ -162,3 +162,30 @@ nav {
 .nav-links a:hover::after {
   width: 100%;
 }
+
+/* ===== Hero Layout ===== */
+main section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 8rem;
+}
+
+.hero-title {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.hero-description {
+  margin: 1.5rem 0 2rem;
+  font-size: 1.1rem;
+}

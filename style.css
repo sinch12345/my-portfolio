@@ -141,3 +141,24 @@ nav {
 .nav-links a:hover {
   color: var(--lime);
 }
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--lime);
+  box-shadow: 0 0 8px var(--lime-glow);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}

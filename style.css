@@ -124,3 +124,20 @@ nav {
   display: flex;
   gap: 2rem;
 }
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--lime);
+}

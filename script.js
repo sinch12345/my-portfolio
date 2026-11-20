@@ -79,3 +79,44 @@ tiltCards.forEach((card) => {
     card.style.transform = "";
   });
 });
+
+// ===== Custom Cursor =====
+const hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorRing = document.querySelector(".cursor-ring");
+
+if (hasFinePointer) {
+  document.body.classList.add("has-custom-cursor");
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+  let firstMove = true;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (firstMove) {
+      ringX = mouseX;
+      ringY = mouseY;
+      firstMove = false;
+      document.body.classList.add("cursor-active");
+    }
+
+    // dot sticks to the mouse instantly
+    cursorDot.style.transform =
+      `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+  });
+
+  // ring chases the mouse with easing (smooth lag)
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    cursorRing.style.transform =
+      `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+}

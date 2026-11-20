@@ -160,4 +160,25 @@ if (hasFinePointer) {
   window.addEventListener("mouseup", () => {
     document.body.classList.remove("cursor-down");
   });
+
+    // spark trail
+  let lastTrail = 0;
+  let trailToggle = false;
+
+  window.addEventListener("mousemove", (e) => {
+    if (prefersReducedMotion) return;
+
+    const now = performance.now();
+    if (now - lastTrail < 35) return; // throttle so it stays smooth
+    lastTrail = now;
+
+    const dot = document.createElement("span");
+    dot.className = "trail-dot";
+    dot.style.left = `${e.clientX}px`;
+    dot.style.top = `${e.clientY}px`;
+    dot.style.background = trailToggle ? "var(--lime)" : "var(--cobalt)";
+    trailToggle = !trailToggle;
+    document.body.appendChild(dot);
+    dot.addEventListener("animationend", () => dot.remove());
+  });
 }

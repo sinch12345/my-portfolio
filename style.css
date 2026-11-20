@@ -451,3 +451,24 @@ main section {
   background: rgba(212, 255, 36, 0.08);
   box-shadow: 0 0 25px var(--lime-glow);
 }
+
+.cursor-down .cursor-ring {
+  width: 26px;
+  height: 26px;
+}
+
+.click-spark {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 10px currentColor;
+  animation: spark-burst 0.6s ease-out forwards;
+}
+
+@keyframes spark-burst {
+  from { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  to   { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0); opacity: 0; }
+}

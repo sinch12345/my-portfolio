@@ -134,4 +134,30 @@ if (hasFinePointer) {
       document.body.classList.remove("cursor-hover");
     }
   });
+
+    // click burst
+  window.addEventListener("mousedown", (e) => {
+    document.body.classList.add("cursor-down");
+
+    if (prefersReducedMotion) return;
+
+    const count = 10;
+    for (let i = 0; i < count; i++) {
+      const spark = document.createElement("span");
+      spark.className = "click-spark";
+      const angle = (Math.PI * 2 * i) / count;
+      const distance = 40 + Math.random() * 30;
+      spark.style.left = `${e.clientX}px`;
+      spark.style.top = `${e.clientY}px`;
+      spark.style.setProperty("--dx", `${Math.cos(angle) * distance}px`);
+      spark.style.setProperty("--dy", `${Math.sin(angle) * distance}px`);
+      spark.style.background = i % 2 === 0 ? "var(--lime)" : "var(--cobalt)";
+      document.body.appendChild(spark);
+      spark.addEventListener("animationend", () => spark.remove());
+    }
+  });
+
+  window.addEventListener("mouseup", () => {
+    document.body.classList.remove("cursor-down");
+  });
 }

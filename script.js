@@ -217,3 +217,10 @@ window.addEventListener("popstate", () => {
 
 // on first load, open the page from the URL (or Home)
 showPage(location.hash.slice(1)) || showPage("home");
+// ===== Project Row Spotlight =====
+document.querySelectorAll(".project-row").forEach((row) => {
+  row.addEventListener("mousemove", (e) => {
+    const rect = row.getBoundingClientRect();
+    row.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+  });
+});

@@ -335,3 +335,11 @@ main section {
 .skill-card:nth-child(4) { transition-delay: 0.3s; }
 .skill-card:nth-child(5) { transition-delay: 0.4s; }
 .skill-card:nth-child(6) { transition-delay: 0.5s; }
+
+/* ===== Skills Grid ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  perspective: 1000px;
+}

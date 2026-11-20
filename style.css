@@ -570,3 +570,56 @@ main section {
   position: relative;
   z-index: 1;
 }
+
+.project-num {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--cobalt);
+  transition: color 0.4s ease, -webkit-text-stroke-color 0.4s ease;
+}
+
+.project-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.project-tagline {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.project-tags span {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.project-arrow {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  font-size: 1.6rem;
+  color: var(--lime);
+  border: 1.5px solid var(--cobalt);
+  border-radius: 50%;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+              background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}

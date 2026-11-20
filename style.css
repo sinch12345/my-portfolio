@@ -343,3 +343,30 @@ main section {
   gap: 1.5rem;
   perspective: 1000px;
 }
+
+.skill-card {
+  background: linear-gradient(145deg, rgba(21, 88, 201, 0.12), rgba(10, 13, 22, 0.7));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.8rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.skill-card h3 {
+  color: var(--lime);
+  margin-bottom: 1rem;
+}
+
+.skill-card li {
+  color: var(--text-muted);
+  padding: 0.3rem 0 0.3rem 1.2rem;
+  position: relative;
+}
+
+.skill-card li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--cobalt);
+}

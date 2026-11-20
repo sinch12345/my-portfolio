@@ -501,3 +501,20 @@ main section {
 .hero.page.active {
   display: flex; /* the hero uses flexbox for centering */
 }
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(10deg) translateY(60px) scale(0.96);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.page.active {
+  animation: page-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}

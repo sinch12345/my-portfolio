@@ -488,3 +488,16 @@ main section {
   from { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
   to   { transform: translate(-50%, calc(-50% + 18px)) scale(0); opacity: 0; }
 }
+
+/* ===== Pages ===== */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.hero.page.active {
+  display: flex; /* the hero uses flexbox for centering */
+}

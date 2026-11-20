@@ -526,3 +526,9 @@ main section {
 .nav-links a.active::after {
   width: 100%;
 }
+
+.about.page,
+.skills.page {
+  min-height: 100vh;
+  padding-top: 8rem;
+}

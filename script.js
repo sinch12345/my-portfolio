@@ -119,4 +119,19 @@ if (hasFinePointer) {
     requestAnimationFrame(animateRing);
   }
   animateRing();
+
+    // grow + turn lime over interactive things
+  const interactiveSelector = "a, button, .btn, .skill-card";
+
+  document.addEventListener("mouseover", (e) => {
+    if (e.target.closest(interactiveSelector)) {
+      document.body.classList.add("cursor-hover");
+    }
+  });
+
+  document.addEventListener("mouseout", (e) => {
+    if (e.target.closest(interactiveSelector)) {
+      document.body.classList.remove("cursor-hover");
+    }
+  });
 }

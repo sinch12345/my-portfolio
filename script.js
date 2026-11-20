@@ -63,6 +63,9 @@ tiltCards.forEach((card) => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
+        card.style.setProperty("--mx", `${x}px`);
+    card.style.setProperty("--my", `${y}px`);
+
     const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 10;
     const rotateX = -((y - rect.height / 2) / (rect.height / 2)) * 10;
 

@@ -376,9 +376,29 @@ main section {
               transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
               border-color 0.3s ease,
               box-shadow 0.3s ease;
+                position: relative;
+  overflow: hidden;
 }
 
 .skill-card:hover {
   border-color: var(--cobalt);
   box-shadow: 0 0 35px var(--cobalt-glow), inset 0 0 25px rgba(21, 88, 201, 0.15);
+}
+
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 140px at var(--mx, 50%) var(--my, 50%),
+    rgba(212, 255, 36, 0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.skill-card:hover::after {
+  opacity: 1;
 }

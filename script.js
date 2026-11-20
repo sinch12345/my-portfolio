@@ -182,3 +182,38 @@ if (hasFinePointer) {
     dot.addEventListener("animationend", () => dot.remove());
   });
 }
+
+// ===== Page Router =====
+const pages = document.querySelectorAll(".page");
+const navLinkEls = document.querySelectorAll(".nav-links a");
+
+function showPage(id) {
+  const target = document.getElementById(id);
+  if (!target || !target.classList.contains("page")) return false;
+
+  pages.forEach((p) => p.classList.toggle("active", p === target));
+  navLinkEls.forEach((link) =>
+    link.classList.toggle("active", link.getAttribute("href") === `#${id}`)
+  );
+
+  window.scrollTo({ top: 0, behavior: "instant" });
+  return true;
+}
+
+// any link that points to #something switches the page
+document.addEventListener("click", (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  e.preventDefault();
+
+  const id = link.getAttribute("href").slice(1);
+  if (showPage(id)) history.pushState(null, "", `#${id}`);
+});
+
+// back / forward buttons
+window.addEventListener("popstate", () => {
+  showPage(location.hash.slice(1) || "home");
+});
+
+// on first load, open the page from the URL (or Home)
+showPage(location.hash.slice(1)) || showPage("home");

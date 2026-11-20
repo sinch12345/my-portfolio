@@ -623,3 +623,49 @@ main section {
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
               background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
+.project-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(21, 88, 201, 0.28), rgba(212, 255, 36, 0.06));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-info,
+.project-num {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+              color 0.4s ease, -webkit-text-stroke-color 0.4s ease;
+}
+
+.project-row:hover::before,
+.project-row:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.project-row:hover .project-info,
+.project-row:focus-visible .project-info {
+  transform: translateX(16px);
+}
+
+.project-row:hover .project-num,
+.project-row:focus-visible .project-num {
+  color: var(--lime);
+  -webkit-text-stroke-color: var(--lime);
+  text-shadow: 0 0 25px var(--lime-glow);
+}
+
+.project-row:hover .project-tags span {
+  border-color: var(--cobalt);
+  color: var(--text);
+}
+
+.project-row:hover .project-arrow,
+.project-row:focus-visible .project-arrow {
+  transform: rotate(45deg) scale(1.1);
+  background: var(--lime);
+  color: var(--bg);
+  border-color: var(--lime);
+  box-shadow: 0 0 30px var(--lime-glow);
+}

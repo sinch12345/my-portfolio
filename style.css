@@ -441,7 +441,9 @@ main section {
 .has-custom-cursor,
 .has-custom-cursor a,
 .has-custom-cursor .btn,
-.has-custom-cursor .project-row {
+.has-custom-cursor .project-row,
+.has-custom-cursor .panel-close,
+.has-custom-cursor .panel-overlay {
   cursor: none;
 }
 .cursor-hover .cursor-ring {

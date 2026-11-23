@@ -121,8 +121,7 @@ if (hasFinePointer) {
   animateRing();
 
     // grow + turn lime over interactive things
-   const interactiveSelector = "a, button, .btn, .skill-card, .project-row";
-  document.addEventListener("mouseover", (e) => {
+const interactiveSelector = "a, button, .btn, .skill-card, .project-row, .panel-close";  document.addEventListener("mouseover", (e) => {
     if (e.target.closest(interactiveSelector)) {
       document.body.classList.add("cursor-hover");
     }

@@ -223,3 +223,66 @@ document.querySelectorAll(".project-row").forEach((row) => {
     row.style.setProperty("--mx", `${e.clientX - rect.left}px`);
   });
 });
+
+// ===== Project Detail Panel =====
+const panel = document.getElementById("project-panel");
+const panelContent = document.getElementById("panel-content");
+const panelClose = document.getElementById("panel-close");
+const panelOverlay = document.getElementById("panel-overlay");
+let lastFocused = null;
+
+function renderProject(p) {
+  const list = (items) => items.map((i) => `<li>${i}</li>`).join("");
+
+  const impact = p.impact.length
+    ? `<div class="panel-block">
+         <h4>Impact</h4>
+         <div class="stat-grid">
+           ${p.impact.map((s) => `<div class="stat"><strong>${s.value}</strong><span>${s.label}</span></div>`).join("")}
+         </div>
+       </div>`
+    : "";
+
+  const links = p.links
+    .map((l) => `<a class="btn ${l.primary ? "" : "btn-outline"}" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`)
+    .join("");
+
+  return `
+    <p class="panel-label">${p.label}</p>
+    <h3 class="panel-title">${p.title}</h3>
+    <p class="panel-tagline">${p.tagline}</p>
+    <div class="panel-links">${links}</div>
+    <div class="panel-block"><h4>The Problem</h4><p>${p.problem}</p></div>
+    <div class="panel-block"><h4>The Solution</h4><p>${p.solution}</p></div>
+    <div class="panel-block"><h4>Key Features</h4><ul class="panel-features">${list(p.features)}</ul></div>
+    ${impact}
+    <div class="panel-block"><h4>Tech Stack</h4><div class="panel-stack">${p.stack.map((s) => `<span>${s}</span>`).join("")}</div></div>
+  `;
+}
+
+function openProject(key) {
+  const project = PROJECTS[key];
+  if (!project) return;
+  lastFocused = document.activeElement;
+  panelContent.innerHTML = renderProject(project);
+  panel.scrollTop = 0;
+  panel.setAttribute("aria-hidden", "false");
+  document.body.classList.add("panel-open");
+  panelClose.focus();
+}
+
+function closeProject() {
+  document.body.classList.remove("panel-open");
+  panel.setAttribute("aria-hidden", "true");
+  if (lastFocused) lastFocused.focus();
+}
+
+document.querySelectorAll(".project-row").forEach((row) => {
+  row.addEventListener("click", () => openProject(row.dataset.project));
+});
+
+panelClose.addEventListener("click", closeProject);
+panelOverlay.addEventListener("click", closeProject);
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && document.body.classList.contains("panel-open")) closeProject();
+});
